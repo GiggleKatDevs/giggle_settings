@@ -279,13 +279,6 @@
             android:targetClass="eu.chainfire.supersu.MainActivity" />
     </header>
 
-    <!-- Superuser -->
-    <header
-        android:id="@+id/superuser"
-        android:fragment="com.android.settings.carbon.superuser.PolicyNativeFragment"
-        android:icon="@drawable/ic_action_permission"
-        android:title="@string/superuser" />
-
     <!-- Date & Time -->
     <header
         settings:includeXmlForSearch="@xml/date_time_prefs"

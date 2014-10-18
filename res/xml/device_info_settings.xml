@@ -20,12 +20,13 @@
 	<PreferenceScreen android:key="bs_logo"
                           android:layout="@layout/logo_row" />
 
-        <PreferenceScreen android:key="beanstalkota_settings"
-                android:title="@string/system_update_settings_list_item_title" 
-                android:summary="@string/system_update_settings_list_item_summary">
+        <!-- Bliss Updates -->
+        <PreferenceScreen android:key="bliss_updates"
+                android:title="@string/blissupdate_settings_title"
+                android:summary="@string/blissupdate_settings_summary">
             <intent android:action="android.intent.action.MAIN"
-                    android:targetPackage="com.beanstalk.beanstalkota"
-                    android:targetClass="com.beanstalk.beanstalkota.activities.SystemActivity" />
+                    android:targetPackage="com.bliss.updater"
+                    android:targetClass="com.bliss.updater.UpdatesSettings" />
         </PreferenceScreen>
 
         <PreferenceScreen android:key="additional_system_update_settings"

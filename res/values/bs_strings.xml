@@ -880,29 +880,17 @@
     <string name="lockscreen_icon_title">Lock handle icon</string>
     <string name="lockscreen_lock_icon_custom">Custom icon</string>
     <string name="lockscreen_lock_icon_default">Default icon</string>   
-    <string name="lockscreen_lock_icon_bs">BeanStalk Icon #1-White Nexus Atom</string>
-    <string name="lockscreen_lock_icon_bs_one">BeanStalk Icon #2-Colored Nexus Atom</string>
-    <string name="lockscreen_lock_icon_bs_two">BeanStalk Icon #3-Cyanogen</string>
-    <string name="lockscreen_lock_icon_bs_three">BeanStalk Icon #4-Punisher</string>
-    <string name="lockscreen_lock_icon_bs_four">BeanStalk Icon #5-Android Logo</string>
-    <string name="lockscreen_lock_icon_bs_five">BeanStalk Icon #6-Fingerprint</string>
-    <string name="lockscreen_lock_icon_bs_six">BeanStalk Icon #6-Fingerprint</string>
-    <string name="lockscreen_lock_icon_bs_seven">BeanStalk Icon #8-CocaCola</string>
-    <string name="lockscreen_lock_icon_bs_eight">BeanStalk Icon #9-Unlock</string>
-    <string name="lockscreen_lock_icon_bs_nine">BeanStalk Icon #10-Skull</string>
-    <string name="lockscreen_lock_icon_bs_ten">BeanStalk Icon #11-HoloXChrome</string> 
-    <string name="lockscreen_lock_icon_bs">Default icon</string>
-    <string name="lockscreen_lock_icon_bs_one">BeanStalk Icon #1-White Nexus Atom</string>
-    <string name="lockscreen_lock_icon_bs_two">BeanStalk Icon #2-Colored Nexus Atom</string>
-    <string name="lockscreen_lock_icon_bs_three">BeanStalk Icon #3-Cyanogen</string>
-    <string name="lockscreen_lock_icon_bs_four">BeanStalk Icon #4-Punisher</string>
-    <string name="lockscreen_lock_icon_bs_five">BeanStalk Icon #5-Android Logo</string>
-    <string name="lockscreen_lock_icon_bs_six">BeanStalk Icon #6-Fingerprint</string>
-    <string name="lockscreen_lock_icon_bs_seven">BeanStalk Icon #7-Chrome Nexus</string>
-    <string name="lockscreen_lock_icon_bs_eight">BeanStalk Icon #8-CocaCola</string>
-    <string name="lockscreen_lock_icon_bs_nine">BeanStalk Icon #9-Unlock</string>
-    <string name="lockscreen_lock_icon_bs_ten">BeanStalk Icon #10-Skull</string> 
-    <string name="lockscreen_lock_icon_default">BeanStalk Icon #11-HoloXChrome</string> 
+    <string name="lockscreen_lock_icon_bs">Bliss Icon #1-White Nexus Atom</string>
+    <string name="lockscreen_lock_icon_bs_one">Bliss Icon #2-Green/White Bliss</string>
+    <string name="lockscreen_lock_icon_bs_two">Bliss Icon #3-Cyanogen</string>
+    <string name="lockscreen_lock_icon_bs_three">Bliss Icon #4-Punisher</string>
+    <string name="lockscreen_lock_icon_bs_four">Bliss Icon #5-Android Logo</string>
+    <string name="lockscreen_lock_icon_bs_five">Bliss Icon #6-Fingerprint</string>
+    <string name="lockscreen_lock_icon_bs_six">Bliss Icon #6-Fingerprint</string>
+    <string name="lockscreen_lock_icon_bs_seven">Bliss Icon #8-CocaCola</string>
+    <string name="lockscreen_lock_icon_bs_eight">Bliss Icon #9-Unlock</string>
+    <string name="lockscreen_lock_icon_bs_nine">Bliss Icon #10-Skull</string>
+    <string name="lockscreen_lock_icon_bs_ten">Bliss Icon #11-HoloXChrome</string> 
     <string name="lockscreen_colorize_handle_title">Colorize custom handle</string>
     <string name="lockscreen_colorize_handle_summary">Lock color will be set to the lock handle</string>
     <string name="lockscreen_style_title">Theme style</string>
@@ -935,7 +923,7 @@
 
     <!-- Init.d Settings : Warning dialog -->
     <string name="init_warning_title">Please Read First</string>
-    <string name="init_warning">The BeanStalk Init.d scripts have been added to this build for experimental purposes only.  While some people may see improved performance on certain phones, there is always the possibility that some phones may not benefit from the scripts and you may actually see a negative impact.  The ideal situation is to find the right combination of scripts that provides the best bang for your buck while keeping a certain level of stability.</string>
+    <string name="init_warning">The Bliss Init.d scripts have been added to this build for experimental purposes only.  While some people may see improved performance on certain phones, there is always the possibility that some phones may not benefit from the scripts and you may actually see a negative impact.  The ideal situation is to find the right combination of scripts that provides the best bang for your buck while keeping a certain level of stability.</string>
 
     <!-- Basic Numbers -->
     <string name="two">Two</string>
@@ -2292,5 +2280,31 @@
     
     <!-- SuperSU header name - the app hides itself from launcher based on this resource name being present in com.android.settings -->
     <string name="supersu_title">SuperSU</string>        
+    <!-- GiggleKat Updater -->
+    <string name="blissupdate_settings_title">GiggleKat Updates</string>
+    <string name="blissupdate_settings_summary">Check for, view or install updates</string>    
+    
+    <!-- Download Center -->
+    <string name="download_category">GiggleKat Downloads</string>
+    <string name="download_category_summary">Inside is everything GiggleKat Develops for your phone</string>
+    <string name="rom_category">Rom Download</string>
+    <string name="gapps_category">GAPPS Packages</string>
+    <string name="xposed_category">Xposed Framework</string>
+    <string name="bsgapps_title">GiggleKat Gapps</string>
+    <string name="bsgapps_summary">GiggleKat Gapps are based off of PA Gapps with some extra stuff...Check our website for more details</string>
+    <string name="bs_official_title">TeamBliss Release Builds</string>
+    <string name="bs_official_summary">Link for stable release builds of GiggleKat</string>
+    <string name="pagapps_title">PA Gapps</string>
+    <string name="pagapps_summary">Fully packed with the majority of GAPPS, these are commonly used by users that do not want to download/install them later</string>
+    <string name="xposed_warning">WARNING</string>
+    <string name="xposed_title">Xposed Installer</string>
+    <string name="xposed_dpi_title">Xposed App Settings</string>    
+    <string name="xposed_summary">While Xposed is proven to be a very useful tool, some modules may cause issues/bugs in custom ROMs. Please uninstall all modules before reporting any bugs that you may come across while using Xposed.</string>
+    <string name="xposed_mod_title">Module Repository</string>
+    <string name="xposed_mod_summary">Browse and install modules to be used with Xposed Framework</string>
+  
+    <!--Eqalizer-->
+    <string name="equalizer_settings_title">Equalizer</string>
+    <string name="equalizer_summary">ViPER4Android Access</string>                   
            
 </resources>

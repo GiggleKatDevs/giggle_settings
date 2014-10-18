@@ -76,8 +76,8 @@ public class DeviceInfoSettings extends RestrictedSettingsFragment {
     private static final String KEY_MOD_VERSION = "mod_version";
 //    private static final String KEY_MOD_BUILD_DATE = "build_date";
     private static final String KEY_DEVICE_CPU = "device_cpu";
-    private static final String KEY_BEANSTALKOTA = "beanstalkota_settings";
     private static final String KEY_DEVICE_MEMORY = "device_memory";
+    private static final String KEY_BLISS_UPDATES = "bliss_updates";
 
     static final int TAPS_TO_BE_A_DEVELOPER = 7;
     long[] mHits = new long[3];
@@ -107,7 +107,7 @@ public class DeviceInfoSettings extends RestrictedSettingsFragment {
  //       setStringSummary(KEY_BUILD_NUMBER, Build.DISPLAY);
  //       findPreference(KEY_BUILD_NUMBER).setEnabled(true);
         findPreference(KEY_KERNEL_VERSION).setSummary(getFormattedKernelVersion());
-        setValueSummary(KEY_MOD_VERSION, "ro.beanstalk.version");
+        setValueSummary(KEY_MOD_VERSION, "ro.bliss.version");
 	findPreference(KEY_MOD_VERSION).setEnabled(true);
 
         if (!SELinux.isSELinuxEnabled()) {
@@ -150,10 +150,11 @@ public class DeviceInfoSettings extends RestrictedSettingsFragment {
             getPreferenceScreen().removePreference(findPreference(KEY_BASEBAND_VERSION));
         }
 
-	if (UserHandle.myUserId() == UserHandle.USER_OWNER) {
-            removePreferenceIfPackageNotInstalled(findPreference(KEY_BEANSTALKOTA));
+        // Only the owner should see the Updater settings, if it exists
+        if (UserHandle.myUserId() == UserHandle.USER_OWNER) {
+            removePreferenceIfPackageNotInstalled(findPreference(KEY_BLISS_UPDATES));
         } else {
-            getPreferenceScreen().removePreference(findPreference(KEY_BEANSTALKOTA));
+            getPreferenceScreen().removePreference(findPreference(KEY_BLISS_UPDATES));
         }
 
         /*
