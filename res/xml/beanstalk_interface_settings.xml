@@ -115,7 +115,7 @@
         android:icon="@drawable/ic_settings_omniswitch"
         android:title="@string/omniswitch_settings_title"
         android:fragment="com.android.settings.aicp.OmniSwitch" />	              
-    <!-- BlissStalk Downloads  -->
+    <!-- GiggleKat Downloads  -->
     <PreferenceScreen
         settings:includeXmlForSearch="@xml/download"
         android:icon="@drawable/ic_menu_save"	    

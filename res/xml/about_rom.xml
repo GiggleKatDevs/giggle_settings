@@ -56,7 +56,7 @@ android:title="@string/contributors_title">
             rb:nameDev="CyanogenMod"
             rb:twitterHandle="cyanogenmod"
             rb:githubLink="@string/github_cyanogenmod"
-            rb:emailDev="admin@teambliss.x10host.com"/>
+            rb:emailDev="admin@gigglekat.com"/>
 
 </PreferenceCategory>
 
