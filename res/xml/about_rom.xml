@@ -13,16 +13,16 @@ xmlns:rb="http://schemas.android.com/apk/res/com.android.settings">
 
 	<Preference
 	    android:key="beanstalk_site"
-	    android:title="@string/beanstalk_site_title"
-	    android:summary="@string/beanstalk_site_summary" />
+	    android:title="@string/gigglekat_site_title"
+	    android:summary="@string/gigglekat_site_summary" />
 
 	<com.android.settings.widgets.DeveloperPreference
-                        android:title="BeanStalk"
-                        rb:nameDev="BeanStalk"
+                        android:title="GiggleKatRom"
+                        rb:nameDev="GiggleKat"
                         rb:facebookLink="@string/facebook_beanstalk"
-                        rb:githubLink="@string/github_scotthartbti"
-            		rb:twitterHandle="scotthartbti"
-                        rb:emailDev="beanstalkbuilds@gmail.com"/>
+                        rb:githubLink="@string/github_gigglekat"
+            		rb:twitterHandle="GiggleKatRom"
+                        rb:emailDev="gigglekatrom@gmail.com"/>
 
 	</PreferenceCategory>
 
@@ -31,12 +31,12 @@ xmlns:rb="http://schemas.android.com/apk/res/com.android.settings">
             android:title="@string/devs">
 
 	<com.android.settings.widgets.DeveloperPreference
-            android:title="scotthartbti"
-            rb:nameDev="scotthartbti"
-            rb:twitterHandle="scotthartbti"
-            rb:donateLink="@string/donate_scotthartbti"
-            rb:githubLink="@string/github_scotthartbti"
-	    rb:emailDev="scott.hart.bti@gmail.com"/>
+            android:title="Patrick Graber"
+            rb:nameDev="Patrick Graber"
+            rb:twitterHandle="pjgraber03"
+            rb:donateLink="@string/donate_gigglekat"
+            rb:githubLink="@string/github_gigglekat"
+	    rb:emailDev="patrick_graber@gigglekat.com"/>
 
 </PreferenceCategory>
 
@@ -45,18 +45,16 @@ android:key="contributors"
 android:title="@string/contributors_title">
 
 	<com.android.settings.widgets.DeveloperPreference
-            android:title="AOKP"
-            rb:nameDev="AOKP"
+            android:title="Team Bliss"
+            rb:nameDev="Team Bliss"
             rb:twitterHandle="aokp_rom"
-            rb:donateLink="@string/donate_aokp"
-            rb:githubLink="@string/github_aokp"
+            rb:githubLink="@string/github_bliss"
 	    rb:emailDev="aokp@aokp.co"/>
 
 	<com.android.settings.widgets.DeveloperPreference
             android:title="CyanogenMod"
             rb:nameDev="CyanogenMod"
             rb:twitterHandle="cyanogenmod"
-            rb:donateLink="@string/donate_cyanogenmod"
             rb:githubLink="@string/github_cyanogenmod"
             rb:emailDev="beanstalkbuilds@gmail.com"/>
 
