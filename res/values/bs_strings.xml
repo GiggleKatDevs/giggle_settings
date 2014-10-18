@@ -880,17 +880,17 @@
     <string name="lockscreen_icon_title">Lock handle icon</string>
     <string name="lockscreen_lock_icon_custom">Custom icon</string>
     <string name="lockscreen_lock_icon_default">Default icon</string>   
-    <string name="lockscreen_lock_icon_bs">Bliss Icon #1-White Nexus Atom</string>
-    <string name="lockscreen_lock_icon_bs_one">Bliss Icon #2-Green/White Bliss</string>
-    <string name="lockscreen_lock_icon_bs_two">Bliss Icon #3-Cyanogen</string>
-    <string name="lockscreen_lock_icon_bs_three">Bliss Icon #4-Punisher</string>
-    <string name="lockscreen_lock_icon_bs_four">Bliss Icon #5-Android Logo</string>
-    <string name="lockscreen_lock_icon_bs_five">Bliss Icon #6-Fingerprint</string>
-    <string name="lockscreen_lock_icon_bs_six">Bliss Icon #6-Fingerprint</string>
-    <string name="lockscreen_lock_icon_bs_seven">Bliss Icon #8-CocaCola</string>
-    <string name="lockscreen_lock_icon_bs_eight">Bliss Icon #9-Unlock</string>
-    <string name="lockscreen_lock_icon_bs_nine">Bliss Icon #10-Skull</string>
-    <string name="lockscreen_lock_icon_bs_ten">Bliss Icon #11-HoloXChrome</string> 
+    <string name="lockscreen_lock_icon_bs">GiggleKat Icon #1-White Nexus Atom</string>
+    <string name="lockscreen_lock_icon_bs_one">GiggleKat Icon #2-Green/White</string>
+    <string name="lockscreen_lock_icon_bs_two">GiggleKat Icon #3-Cyanogen</string>
+    <string name="lockscreen_lock_icon_bs_three">GiggleKat Icon #4-Punisher</string>
+    <string name="lockscreen_lock_icon_bs_four">GiggleKat Icon #5-Android Logo</string>
+    <string name="lockscreen_lock_icon_bs_five">GiggleKat Icon #6-Fingerprint</string>
+    <string name="lockscreen_lock_icon_bs_six">GiggleKat Icon #6-Fingerprint</string>
+    <string name="lockscreen_lock_icon_bs_seven">GiggleKat Icon #8-CocaCola</string>
+    <string name="lockscreen_lock_icon_bs_eight">GiggleKat Icon #9-Unlock</string>
+    <string name="lockscreen_lock_icon_bs_nine">GiggleKat Icon #10-Skull</string>
+    <string name="lockscreen_lock_icon_bs_ten">GiggleKat Icon #11-HoloXChrome</string> 
     <string name="lockscreen_colorize_handle_title">Colorize custom handle</string>
     <string name="lockscreen_colorize_handle_summary">Lock color will be set to the lock handle</string>
     <string name="lockscreen_style_title">Theme style</string>
@@ -923,7 +923,7 @@
 
     <!-- Init.d Settings : Warning dialog -->
     <string name="init_warning_title">Please Read First</string>
-    <string name="init_warning">The Bliss Init.d scripts have been added to this build for experimental purposes only.  While some people may see improved performance on certain phones, there is always the possibility that some phones may not benefit from the scripts and you may actually see a negative impact.  The ideal situation is to find the right combination of scripts that provides the best bang for your buck while keeping a certain level of stability.</string>
+    <string name="init_warning">The GiggleKat Init.d scripts have been added to this build for experimental purposes only.  While some people may see improved performance on certain phones, there is always the possibility that some phones may not benefit from the scripts and you may actually see a negative impact.  The ideal situation is to find the right combination of scripts that provides the best bang for your buck while keeping a certain level of stability.</string>
 
     <!-- Basic Numbers -->
     <string name="two">Two</string>
@@ -2292,7 +2292,7 @@
     <string name="xposed_category">Xposed Framework</string>
     <string name="bsgapps_title">GiggleKat Gapps</string>
     <string name="bsgapps_summary">GiggleKat Gapps are based off of PA Gapps with some extra stuff...Check our website for more details</string>
-    <string name="bs_official_title">TeamBliss Release Builds</string>
+    <string name="bs_official_title">GiggleKat Rom Release Builds</string>
     <string name="bs_official_summary">Link for stable release builds of GiggleKat</string>
     <string name="pagapps_title">PA Gapps</string>
     <string name="pagapps_summary">Fully packed with the majority of GAPPS, these are commonly used by users that do not want to download/install them later</string>
