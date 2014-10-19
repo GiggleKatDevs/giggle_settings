@@ -55,8 +55,8 @@ public class Download extends SettingsPreferenceFragment implements OnPreference
 
         final ContentResolver resolver = getActivity().getContentResolver();
 
-        mBSGapps = findPreference("bs_gapps");
-        mBSOfficial = findPreference("bs_official");
+        mBSGapps = findPreference("gigglekat_gapps");
+        mBSOfficial = findPreference("gigglekat_official");
         mPAGapps = findPreference("pa_gapps");
         mXposed = findPreference("xposed");
         mXposeddpi = findPreference("xposeddpi");        
