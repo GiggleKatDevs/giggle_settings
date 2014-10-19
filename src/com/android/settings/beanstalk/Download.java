@@ -71,7 +71,7 @@ public class Download extends SettingsPreferenceFragment implements OnPreference
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         if (preference == mBSGapps) {
-            Uri uri = Uri.parse("http://teambliss.x10host.com/BlissStalk/Gapps/");
+            Uri uri = Uri.parse("http://downloads.gigglekat.com/Addons/Gapps/");
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             startActivity(intent);
             return true;
@@ -81,12 +81,12 @@ public class Download extends SettingsPreferenceFragment implements OnPreference
             startActivity(intent);
             return true;
         } else if (preference == mXposed) {
-            Uri uri = Uri.parse("http://teambliss.x10host.com/BlissStalk/Other Downloads/xposed_installer.apk");
+            Uri uri = Uri.parse("http://downloads.gigglekat.com/Addons/xposed_installer.apk");
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             startActivity(intent);
             return true;
         } else if (preference == mXposeddpi) {
-            Uri uri = Uri.parse("http://teambliss.x10host.com/BlissStalk/Other Downloads/appsetting.apk");
+            Uri uri = Uri.parse("http://downloads.gigglekat.com/Addons/appsetting.apk");
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             startActivity(intent);
             return true;            
@@ -96,7 +96,7 @@ public class Download extends SettingsPreferenceFragment implements OnPreference
             startActivity(intent);
             return true;
         } else if (preference == mBSOfficial) {
-            Uri uri = Uri.parse("http://teambliss.x10host.com/BlissStalk/Devices/");
+            Uri uri = Uri.parse("http://downloads.gigglekat.com/Devices/");
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             startActivity(intent);
             return true;
