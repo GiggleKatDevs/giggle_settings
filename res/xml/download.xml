@@ -60,7 +60,12 @@
         
     <Preference
         android:key="xposeddpi"
-        android:title="@string/xposed_dpi_title" />        
+        android:title="@string/xposed_dpi_title" />
+        
+    <Preference
+        android:key="xposednetflix"
+        android:title="@string/xposed_netflix"
+        android:summary="@string/xposed_netflix_summary"/>                 
 
     <Preference
         android:key="xposed_mod"

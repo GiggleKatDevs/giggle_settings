@@ -68,6 +68,26 @@
         android:icon="@drawable/ic_settings_about_beanstalk"
         android:fragment="com.android.settings.beanstalk.InterfaceSettings"
         android:title="@string/interface_settings_title" />
+        
+    <!--User Interface -->
+    <header
+        android:icon="@drawable/ic_settings_advanced"    
+        settings:includeXmlForSearch="@xml/advanced_controls"
+        android:key="advanced_controls"
+        android:fragment="com.android.settings.beanstalk.AdvancedControls"
+        android:title="@string/advanced_controls_title" />  
+        
+    <!-- Equalizer -->
+    <header
+        android:id="@+id/equalizer_settings"
+        android:title="@string/equalizer_settings_title"
+        android:summary="@string/equalizer_summary"       
+        android:icon="@drawable/ic_bliss_equalizer" >
+        <intent
+           android:action="android.intent.action.MAIN"
+           android:targetClass="com.vipercn.viper4android_v2.activity.ViPER4Android"
+           android:targetPackage="com.vipercn.viper4android_v2" />
+     </header>             
 
     <!-- TRDS -->
     <header

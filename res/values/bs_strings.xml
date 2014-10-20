@@ -28,7 +28,7 @@
     <string name="add">Add</string>
 
     <!-- Settings main menu category heading. Rom (Launcher, Themes, System). [CHAR LIMIT=40] -->
-    <string name="header_category_rom_settings">Advanced</string>
+    <string name="header_category_rom_settings">Bliss Customizations</string>
 
     <!-- BeanStalk settings screens -->
     <string name="interface_settings_title">Giggly Settings</string>
@@ -2243,7 +2243,7 @@
     <string name="status_bar_six_bar_signal_title">Enable Six Bar Signal</string>
     <string name="status_bar_six_bar_signal_summary">Enable to show six bar signal in statusbar/qs</string>
 
-    <string name="advanced_controls_title">Advanced system controls</string>
+    <string name="advanced_controls_title">Advanced Controls</string>
     <string name="xposed_mods_title">Xposed Apps Access</string>
     <string name="xposed_mods_summary">Proceed With Caution!</string>    
 
@@ -2298,7 +2298,9 @@
     <string name="pagapps_summary">Fully packed with the majority of GAPPS, these are commonly used by users that do not want to download/install them later</string>
     <string name="xposed_warning">WARNING</string>
     <string name="xposed_title">Xposed Installer</string>
-    <string name="xposed_dpi_title">Xposed App Settings</string>    
+    <string name="xposed_dpi_title">Xposed App Settings</string>
+    <string name="xposed_netflix">Xposed NetFlix Workaround</string>
+    <string name="xposed_netflix_summary">Once Installed enable the Module in Xposed Installer App</string>              
     <string name="xposed_summary">While Xposed is proven to be a very useful tool, some modules may cause issues/bugs in custom ROMs. Please uninstall all modules before reporting any bugs that you may come across while using Xposed.</string>
     <string name="xposed_mod_title">Module Repository</string>
     <string name="xposed_mod_summary">Browse and install modules to be used with Xposed Framework</string>

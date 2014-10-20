@@ -45,6 +45,7 @@ public class Download extends SettingsPreferenceFragment implements OnPreference
     Preference mPAGapps;
     Preference mXposed;
     Preference mXposeddpi;
+    Preference mXposednetflix;    
     Preference mXposedMod;
 
     @Override
@@ -59,7 +60,8 @@ public class Download extends SettingsPreferenceFragment implements OnPreference
         mBSOfficial = findPreference("gigglekat_official");
         mPAGapps = findPreference("pa_gapps");
         mXposed = findPreference("xposed");
-        mXposeddpi = findPreference("xposeddpi");        
+        mXposeddpi = findPreference("xposeddpi");
+        mXposednetflix = findPreference("xposednetflix");                 
         mXposedMod = findPreference("xposed_mod");
     }
 
@@ -89,7 +91,12 @@ public class Download extends SettingsPreferenceFragment implements OnPreference
             Uri uri = Uri.parse("http://downloads.gigglekat.com/Addons/appsetting.apk");
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             startActivity(intent);
-            return true;            
+            return true;
+        } else if (preference == mXposednetflix) {
+            Uri uri = Uri.parse("http://teambliss.x10host.com/BlissStalk/Other Downloads/NetflixWorkaround.apk");
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            startActivity(intent);
+            return true;                           
         } else if (preference == mXposedMod) {
             Uri uri = Uri.parse("http://goo.gl/5J860t");
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
