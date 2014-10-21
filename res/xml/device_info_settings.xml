@@ -37,7 +37,7 @@
                     android:targetClass="@string/additional_system_update_menu" />
         </PreferenceScreen>
 
-        <!-- Bliss Share -->
+        <!-- GiggleKat Share -->
         <Preference
             android:key="share"
             android:title="@string/share_bliss_title"
@@ -85,7 +85,7 @@
 
         </PreferenceScreen>
 
-        <!-- Bliss Extra Info -->
+        <!-- GiggleKat Extra Info -->
         <PreferenceScreen android:key="extrainfo"
                 android:title="@string/blissextrainfo"
                 android:summary="@string/blissextrainfo_summary">
