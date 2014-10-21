@@ -2196,7 +2196,7 @@
 
         <activity android:name=".cyanogenmod.PowerWidget" />
 	
-        <!-- Bliss Extra info -->
+        <!--GiggleKat Extra info -->
         <activity android:name="com.android.settings.beanstalk.extrainfo.MainActivity"
                   android:theme="@android:style/Theme.Holo.Dialog.NoActionBar.MinWidth">
             <intent-filter>
