@@ -85,6 +85,7 @@ import com.android.settings.accounts.ManageAccountsSettings;
 import com.android.settings.applications.AppOpsSummary;
 import com.android.settings.applications.ManageApplications;
 import com.android.settings.applications.ProcessStatsUi;
+import com.android.settings.carbon.superuser.PolicyNativeFragment;
 import com.android.settings.blacklist.BlacklistSettings;
 import com.android.settings.bluetooth.BluetoothEnabler;
 import com.android.settings.bluetooth.BluetoothSettings;
@@ -201,7 +202,8 @@ public class Settings extends PreferenceActivity
             R.id.lock_screen_settings,
             R.id.privacy_settings_cyanogenmod,
             R.id.button_settings,
-            R.id.supersu_settings
+            R.id.supersu_settings,			
+            R.id.superuser
     };
 
     private SharedPreferences mDevelopmentPreferences;
@@ -481,10 +483,12 @@ public class Settings extends PreferenceActivity
         HomeSettings.class.getName(),
         ButtonSettings.class.getName(),
         ProfilesSettings.class.getName(),
+        PolicyNativeFragment.class.getName(),
         com.android.settings.cyanogenmod.PrivacySettings.class.getName(),
 	ThemeSettings.class.getName(),
         ShakeEvents.class.getName(),
-	com.android.settings.wifi.WifiApSettings.class.getName()
+	com.android.settings.wifi.WifiApSettings.class.getName(),
+        com.android.settings.carbon.superuser.PolicyNativeFragment.class.getName()	
     };
 
     @Override
@@ -783,6 +787,17 @@ public class Settings extends PreferenceActivity
                     //remove SuperSU header
                     target.remove(i);
                 }
+            } else if (id == R.id.superuser) {
+                boolean supported = false;
+                try {
+                    supported = (getPackageManager().getPackageInfo("eu.chainfire.supersu", 0).versionCode >= 185);
+                } catch (PackageManager.NameNotFoundException e) {
+                }
+                if (supported) {
+                    //SuperSu is installed and embeddable, so remove SuperUser header
+                    target.remove(i);
+                }				
+
             } else if (id == R.id.voice_wakeup_settings) {
                 if(!Utils.isPackageInstalled(this, VOICE_WAKEUP_PACKAGE_NAME)) {
                     target.remove(header);
@@ -1385,9 +1400,9 @@ public class Settings extends PreferenceActivity
     public static class ApnSettingsActivity extends Settings { /* empty */ }
     public static class ApnEditorActivity extends Settings { /* empty */ }
     public static class BlacklistSettingsActivity extends Settings { /* empty */ }
-    public static class AboutActivity extends Settings { /* empty */ }
     public static class ASSRamBarActivity extends Settings { /* empty */ }
     public static class QuietHoursSettingsActivity extends Settings { /* empty */ }
+    public static class AboutActivity extends Settings { /* empty */ }	
     public static class QuickSettingsTilesSettingsActivity extends Settings { /* empty */ }
     public static class BatteryIconStyleSettingsActivity extends Settings { /* empty */ }
     public static class DisplayRotationSettingsActivity extends Settings { /* empty */ }

@@ -19,9 +19,10 @@
 
 	<PreferenceScreen android:key="bs_logo"
                           android:layout="@layout/logo_row" />
-
+			  
         <!-- Bliss Updates -->
-        <PreferenceScreen android:key="bliss_updates"
+        <PreferenceScreen 
+	        android:key="bliss_updates"
                 android:title="@string/blissupdate_settings_title"
                 android:summary="@string/blissupdate_settings_summary">
             <intent android:action="android.intent.action.MAIN"
@@ -35,6 +36,12 @@
                     android:targetPackage="@string/additional_system_update"
                     android:targetClass="@string/additional_system_update_menu" />
         </PreferenceScreen>
+
+        <!-- Bliss Share -->
+        <Preference
+            android:key="share"
+            android:title="@string/share_bliss_title"
+            android:summary="@string/share_bliss_summary" />
 
         <!-- Device status - launches activity -->
         <PreferenceScreen android:key="status_info"
@@ -77,7 +84,16 @@
             </PreferenceScreen>
 
         </PreferenceScreen>
-        
+
+        <!-- Bliss Extra Info -->
+        <PreferenceScreen android:key="extrainfo"
+                android:title="@string/blissextrainfo"
+                android:summary="@string/blissextrainfo_summary">
+            <intent android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.android.settings"
+                    android:targetClass="com.android.settings.beanstalk.extrainfo.MainActivity" />
+        </PreferenceScreen>
+
         <PreferenceScreen
                 android:key="safetylegal"
                 android:title="@string/settings_safetylegal_title">
@@ -102,6 +118,7 @@
         <!-- Device hardware model -->
         <Preference android:key="device_model" 
                 style="?android:preferenceInformationStyle"
+                android:selectable="false"
                 android:title="@string/model_number"
                 android:summary="@string/device_info_default"/>
                 
@@ -114,12 +131,14 @@
         <!-- Device FCC equipment id -->
         <Preference android:key="fcc_equipment_id"
                 style="?android:preferenceInformationStyle"
+                android:selectable="false"
                 android:title="@string/fcc_equipment_id"
                 android:summary="@string/device_info_default"/>
 
         <!-- Device Baseband version -->
         <Preference android:key="baseband_version" 
                 style="?android:preferenceInformationStyle"
+                android:selectable="false"
                 android:title="@string/baseband_version"
                 android:summary="@string/device_info_default"/>
         
@@ -129,17 +148,6 @@
                 android:title="@string/kernel_version"
                 android:summary="@string/device_info_default"/>
 
-        <!-- Device cpu info -->
-        <Preference android:key="device_cpu"
-                style="?android:preferenceInformationStyle"
-                android:title="@string/cpu_info"
-                android:summary="@string/device_info_default"/>
-
-        <!-- Device mem info -->
-        <Preference android:key="device_memory"
-                style="?android:preferenceInformationStyle"
-                android:title="@string/mem_info"
-                android:summary="@string/device_info_default"/>
 
         <!-- Mod version -->
         <Preference android:key="mod_version"
@@ -151,18 +159,6 @@
             android:key="donate"
             android:title="@string/donate_beanstalk_title"
             android:summary="@string/donate_beanstalk_summary" />
-
-        <!-- Mod build date -->
-<!--        <Preference android:key="build_date"
-                style="?android:preferenceInformationStyle"
-                android:title="@string/build_date"
-                android:summary="@string/build_date_default" />
-
-         Detailed build version 
-        <Preference android:key="build_number" 
-                style="?android:preferenceInformationStyle"
-                android:title="@string/build_number"
-                android:summary="@string/device_info_default"/> -->
 
         <!-- SELinux status information -->
         <Preference android:key="selinux_status"

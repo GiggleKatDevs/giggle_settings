@@ -44,14 +44,14 @@ import java.io.InputStreamReader;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.android.settings.R;
+
 public class DeviceInfoSettings extends RestrictedSettingsFragment {
 
     private static final String LOG_TAG = "DeviceInfoSettings";
 
     private static final String FILENAME_PROC_VERSION = "/proc/version";
     private static final String FILENAME_MSV = "/sys/board_properties/soc/msv";
-    private static final String FILENAME_PROC_MEMINFO = "/proc/meminfo";
-    private static final String FILENAME_PROC_CPUINFO = "/proc/cpuinfo";
 
     private static final String KEY_CONTAINER = "container";
     private static final String KEY_BS_DONATE= "donate";
@@ -74,9 +74,7 @@ public class DeviceInfoSettings extends RestrictedSettingsFragment {
     private static final String KEY_EQUIPMENT_ID = "fcc_equipment_id";
     private static final String PROPERTY_EQUIPMENT_ID = "ro.ril.fccid";
     private static final String KEY_MOD_VERSION = "mod_version";
-//    private static final String KEY_MOD_BUILD_DATE = "build_date";
-    private static final String KEY_DEVICE_CPU = "device_cpu";
-    private static final String KEY_DEVICE_MEMORY = "device_memory";
+    private static final String KEY_BLISS_SHARE = "share";
     private static final String KEY_BLISS_UPDATES = "bliss_updates";
 
     static final int TAPS_TO_BE_A_DEVELOPER = 7;
@@ -104,11 +102,9 @@ public class DeviceInfoSettings extends RestrictedSettingsFragment {
         setStringSummary(KEY_DEVICE_MODEL, Build.MODEL + getMsvSuffix());
         setValueSummary(KEY_EQUIPMENT_ID, PROPERTY_EQUIPMENT_ID);
         setStringSummary(KEY_DEVICE_MODEL, Build.MODEL);
- //       setStringSummary(KEY_BUILD_NUMBER, Build.DISPLAY);
- //       findPreference(KEY_BUILD_NUMBER).setEnabled(true);
         findPreference(KEY_KERNEL_VERSION).setSummary(getFormattedKernelVersion());
         setValueSummary(KEY_MOD_VERSION, "ro.bliss.version");
-	findPreference(KEY_MOD_VERSION).setEnabled(true);
+	    findPreference(KEY_MOD_VERSION).setEnabled(true);
 
         if (!SELinux.isSELinuxEnabled()) {
             String status = getResources().getString(R.string.selinux_status_disabled);
@@ -122,21 +118,6 @@ public class DeviceInfoSettings extends RestrictedSettingsFragment {
         removePreferenceIfPropertyMissing(getPreferenceScreen(), KEY_SELINUX_STATUS,
                 PROPERTY_SELINUX_STATUS);
 
-        String cpuInfo = getCPUInfo();
-        String memInfo = getMemInfo();
-
-        if (cpuInfo != null) {
-            setStringSummary(KEY_DEVICE_CPU, cpuInfo);
-        } else {
-            getPreferenceScreen().removePreference(findPreference(KEY_DEVICE_CPU));
-        }
-
-        if (memInfo != null) {
-            setStringSummary(KEY_DEVICE_MEMORY, memInfo);
-        } else {
-            getPreferenceScreen().removePreference(findPreference(KEY_DEVICE_MEMORY));
-        }
-
         // Remove Safety information preference if PROPERTY_URL_SAFETYLEGAL is not set
         removePreferenceIfPropertyMissing(getPreferenceScreen(), "safetylegal",
                 PROPERTY_URL_SAFETYLEGAL);
@@ -144,6 +125,7 @@ public class DeviceInfoSettings extends RestrictedSettingsFragment {
         // Remove Equipment id preference if FCC ID is not set by RIL
         removePreferenceIfPropertyMissing(getPreferenceScreen(), KEY_EQUIPMENT_ID,
                 PROPERTY_EQUIPMENT_ID);
+
 
         // Remove Baseband version if wifi-only device
         if (Utils.isWifiOnly(getActivity())) {
@@ -278,6 +260,13 @@ public class DeviceInfoSettings extends RestrictedSettingsFragment {
             Intent browserIntent = new Intent(Intent.ACTION_VIEW,
                     Uri.parse(getActivity().getString(R.string.donate_link)));
             startActivity(browserIntent);
+        } else if (preference.getKey().equals(KEY_BLISS_SHARE)) {
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TEXT, String.format(
+                getActivity().getString(R.string.share_message), Build.MODEL));
+        startActivity(Intent.createChooser(intent, getActivity().getString(R.string.share_chooser_title)));			
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
@@ -398,46 +387,6 @@ public class DeviceInfoSettings extends RestrictedSettingsFragment {
             // Fail quietly, returning empty string should be sufficient
         }
         return "";
-    }
-
-    private String getMemInfo() {
-        String result = null;
-        BufferedReader reader = null;
-
-        try {
-            /* /proc/meminfo entries follow this format:
-             * MemTotal:         362096 kB
-             * MemFree:           29144 kB
-             * Buffers:            5236 kB
-             * Cached:            81652 kB
-             */
-            String firstLine = readLine(FILENAME_PROC_MEMINFO);
-            if (firstLine != null) {
-                String parts[] = firstLine.split("\\s+");
-                if (parts.length == 3) {
-                    result = Long.parseLong(parts[1])/1024 + " MB";
-                }
-            }
-        } catch (IOException e) {}
-
-        return result;
-    }
-
-    private String getCPUInfo() {
-        String result = null;
-
-        try {
-            /* The expected /proc/cpuinfo output is as follows:
-             * Processor	: ARMv7 Processor rev 2 (v7l)
-             * BogoMIPS	: 272.62
-             */
-            String firstLine = readLine(FILENAME_PROC_CPUINFO);
-            if (firstLine != null) {
-                result = firstLine.split(":")[1].trim();
-            }
-        } catch (IOException e) {}
-
-        return result;
     }
 
     private boolean removePreferenceIfPackageNotInstalled(Preference preference) {

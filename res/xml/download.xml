@@ -43,6 +43,17 @@
         android:summary="@string/pagapps_summary" />
 
     </PreferenceCategory>
+    
+    <PreferenceCategory
+        android:key="su_category"
+        android:title="@string/su_category">
+
+    <Preference
+        android:key="supersu"
+        android:title="@string/supersu_title"
+        android:summary="@string/supersu_summary" />
+
+    </PreferenceCategory>    
 
     <PreferenceCategory
         android:key="xposed_category"

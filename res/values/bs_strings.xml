@@ -456,8 +456,8 @@
     <string name="github_cyanogenmod">https://github.com/CyanogenMod</string>
     <string name="github_bliss">https://github.com/TeamBliss</string> 
     <string name="donate_gigglekat">https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=4ZVMU6WD96KE4</string>
-     <string name="gigglekat_site_title">GiggleKat website</string>
-     <string name="gigglekat_site_summary">Visit the GiggleKat website for latest news and forums to help you and us with the ROM.</string>
+    <string name="gigglekat_site_title">GiggleKat website</string>
+    <string name="gigglekat_site_summary">Visit the GiggleKat website for latest news and forums to help you and us with the ROM.</string>
     <string name="google_scotthartbti">https://plus.google.com/u/0/communities/103042505711954217289</string>
     <string name="facebook_beanstalk">https://www.facebook.com/pages/GiggleKat-Rom/528307553935934</string>
     <string name="beanstalk">GiggleKat Builds</string>
@@ -2304,9 +2304,22 @@
     <string name="xposed_summary">While Xposed is proven to be a very useful tool, some modules may cause issues/bugs in custom ROMs. Please uninstall all modules before reporting any bugs that you may come across while using Xposed.</string>
     <string name="xposed_mod_title">Module Repository</string>
     <string name="xposed_mod_summary">Browse and install modules to be used with Xposed Framework</string>
+    <string name="su_category">SuperSu Download</string>    
+    <string name="supersu_title">ChainFires SuperSu</string>
+    <string name="supersu_summary">v2.14 Stable-Download and Flash in Recovery</string>    
   
     <!--Eqalizer-->
     <string name="equalizer_settings_title">Equalizer</string>
-    <string name="equalizer_summary">ViPER4Android Access</string>                   
+    <string name="equalizer_summary">ViPER4Android Access</string>
+    
+    <!-- GiggleKat Extra Info -->
+    <string name="blissextrainfo">Extra information</string>
+    <string name="blissextrainfo_summary">Display extra info for cpu, display, etc</string> 
+    
+    <!-- Share GiggleKat Rom -->
+    <string name="share_bliss_title">Share GiggleKat Rom with Others</string>
+    <string name="share_bliss_summary">Let others and the devs know what you think of the rom</string>
+    <string name="share_message">Head over to the GiggleKat Website and find out more about the GiggleKat Rom...There is also a forum and extra goodies there so check it all out @ http://gigglekat.com</string>
+    <string name="share_chooser_title">Share the GiggleKat Rom</string>                          
            
 </resources>

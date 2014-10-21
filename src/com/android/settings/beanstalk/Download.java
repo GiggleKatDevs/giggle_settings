@@ -42,10 +42,11 @@ public class Download extends SettingsPreferenceFragment implements OnPreference
 
     Preference mBSGapps;
     Preference mBSOfficial;
+    Preference mSuperSu;
     Preference mPAGapps;
     Preference mXposed;
     Preference mXposeddpi;
-    Preference mXposednetflix;    
+    Preference mXposednetflix;
     Preference mXposedMod;
 
     @Override
@@ -58,10 +59,11 @@ public class Download extends SettingsPreferenceFragment implements OnPreference
 
         mBSGapps = findPreference("gigglekat_gapps");
         mBSOfficial = findPreference("gigglekat_official");
+        mSuperSu = findPreference("supersu");
         mPAGapps = findPreference("pa_gapps");
         mXposed = findPreference("xposed");
         mXposeddpi = findPreference("xposeddpi");
-        mXposednetflix = findPreference("xposednetflix");                 
+        mXposednetflix = findPreference("xposednetflix");
         mXposedMod = findPreference("xposed_mod");
     }
 
@@ -93,10 +95,10 @@ public class Download extends SettingsPreferenceFragment implements OnPreference
             startActivity(intent);
             return true;
         } else if (preference == mXposednetflix) {
-            Uri uri = Uri.parse("http://teambliss.x10host.com/BlissStalk/Other Downloads/NetflixWorkaround.apk");
+            Uri uri = Uri.parse("http://downloads.gigglekat.com/Addons/NetflixWorkaround.apk");
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             startActivity(intent);
-            return true;                           
+            return true;
         } else if (preference == mXposedMod) {
             Uri uri = Uri.parse("http://goo.gl/5J860t");
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
@@ -104,6 +106,11 @@ public class Download extends SettingsPreferenceFragment implements OnPreference
             return true;
         } else if (preference == mBSOfficial) {
             Uri uri = Uri.parse("http://downloads.gigglekat.com/Devices/");
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            startActivity(intent);
+            return true;
+        } else if (preference == mSuperSu) {
+            Uri uri = Uri.parse("http://downloads.gigglekat.com/Addons/UPDATE-SuperSU-v2.14.zip");
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             startActivity(intent);
             return true;
