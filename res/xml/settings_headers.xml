@@ -347,14 +347,14 @@
             android:targetClass="com.dsht.kerneltweaker.MainActivity"
             android:targetPackage="com.dsht.kerneltweaker" />
 	</header>
-	
-     <!-- About BeanStalk -->
-     <header
-         settings:includeXmlForSearch="@xml/about_rom"
-         android:id="@+id/about_rom"
-         android:fragment="com.android.settings.beanstalk.About"
-         android:icon="@drawable/ic_settings_about_beanstalk"
-         android:title="@string/about_beanstalk_settings_title" />	
+
+    <!-- About BeanStalk -->
+    <header
+        settings:includeXmlForSearch="@xml/about_rom"
+        android:id="@+id/about_rom"
+        android:fragment="com.android.settings.beanstalk.About"
+        android:icon="@drawable/ic_settings_about_beanstalk"
+        android:title="@string/about_beanstalk_settings_title" />
 
     <!-- About Device -->
     <header
