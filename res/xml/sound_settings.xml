@@ -73,11 +73,6 @@
             android:fragment="com.android.settings.beanstalk.QuietHours"
             android:title="@string/quiet_hours_title" />
 
-    <!-- DSP Manager -->
-    <Preference
-            android:key="musicfx"
-            android:title="@string/musicfx_title" />
-
     <PreferenceCategory
             android:key="category_calls_and_notification"
             android:title="@string/sound_category_call_ringtone_vibrate_title"/>
@@ -163,12 +158,14 @@
     <com.android.settings.beanstalk.SeekBarPreference
             android:key="vibration_duration"
             android:title="@string/minimum_vibration_duration" />
-
-    <com.android.settings.hardware.VibratorIntensity
-            android:key="vibration_intensity"
-            android:title="@string/vibrator_intensity_title"
-            android:dialogTitle="@string/vibrator_intensity_title"
-            android:persistent="false" />
+	    
+    <ListPreference
+     android:key="vibrator_multiplier"
+     android:persistent="false"
+     android:title="@string/vibrator_multiplier_title"
+     android:dialogTitle="@string/vibrator_multiplier_title"
+     android:entries="@array/vibration_multiplier_values"
+     android:entryValues="@array/vibration_multiplier_values" />	    
 
     <com.android.settings.cyanogenmod.SystemSettingCheckBoxPreference
             android:key="volume_adjust_sounds_enabled"

@@ -2320,6 +2320,9 @@
     <string name="share_bliss_title">Share GiggleKat Rom with Others</string>
     <string name="share_bliss_summary">Let others and the devs know what you think of the rom</string>
     <string name="share_message">Head over to the GiggleKat Website and find out more about the GiggleKat Rom...There is also a forum and extra goodies there so check it all out @ http://gigglekat.com</string>
-    <string name="share_chooser_title">Share the GiggleKat Rom</string>                          
+    <string name="share_chooser_title">Share the GiggleKat Rom</string>
+    
+    <!-- Vibration multiplier -->
+    <string name="vibrator_multiplier_title">Vibration multiplier</string>
            
 </resources>

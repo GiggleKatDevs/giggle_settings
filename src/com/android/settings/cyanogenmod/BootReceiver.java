@@ -14,7 +14,6 @@ import com.android.settings.R;
 import com.android.settings.Utils;
 import com.android.settings.hardware.DisplayColor;
 import com.android.settings.hardware.DisplayGamma;
-import com.android.settings.hardware.VibratorIntensity;
 import com.android.settings.location.LocationSettings;
 import com.android.settings.beanstalk.service.QuietHoursController;
 
@@ -41,7 +40,6 @@ public class BootReceiver extends BroadcastReceiver {
         /* Restore hardware tunable values */
         DisplayColor.restore(ctx);
         DisplayGamma.restore(ctx);
-        VibratorIntensity.restore(ctx);
         DisplaySettings.restore(ctx);
         LocationSettings.restore(ctx);
     }
