@@ -16,8 +16,6 @@
 
 package com.android.settings;
 
-import com.android.settings.TRDSEnabler;
-
 import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.accounts.OnAccountsUpdateListener;
@@ -117,6 +115,7 @@ import com.android.settings.search.SettingsAutoCompleteTextView;
 import com.android.settings.search.SearchPopulator;
 import com.android.settings.search.SettingsSearchFilterAdapter;
 import com.android.settings.search.SettingsSearchFilterAdapter.SearchInfo;
+import com.android.settings.bliss.themes.ThemeEnabler;
 import com.android.settings.tts.TextToSpeechSettings;
 import com.android.settings.users.UserSettings;
 import com.android.settings.voicewakeup.VoiceWakeupEnabler;
@@ -168,7 +167,8 @@ public class Settings extends PreferenceActivity
     private Header mCurrentHeader;
     private Header mParentHeader;
     private boolean mInLocalHeaderSwitch;
-    private static Switch mTRDSSwitch;
+
+    private int mCurrentState = 0;
 
     private boolean mAttached;
 
@@ -239,6 +239,11 @@ public class Settings extends PreferenceActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        // We only want to inflate the search menu item in the top-level activity
+        if (getClass() != Settings.class) {
+            return false;
+        }
+
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.settings_search, menu);
         mSearchItem = menu.findItem(R.id.action_search);
@@ -270,6 +275,7 @@ public class Settings extends PreferenceActivity
         mSearchBar.setLayoutParams(layoutParams);
         mSearchBar.setHint(R.string.settings_search_autocompleteview_hint);
         mSearchBar.setThreshold(1);
+        mSearchBar.setSingleLine(true);
         mSearchBar.setOnItemClickListener(this);
         mSearchBar.setAdapter(new SettingsSearchFilterAdapter(this));
 
@@ -322,15 +328,14 @@ public class Settings extends PreferenceActivity
             });
         }
 
-        mActionBar = getActionBar();
-        if (mActionBar != null) {
-            // Override up navigation for multi-pane, since we handle it in the fragment breadcrumbs
-            if (onIsMultiPane()) {
-                mActionBar.setDisplayHomeAsUpEnabled(false);
-                mActionBar.setHomeButtonEnabled(false);
-            }
-            mActionBar.setDisplayShowCustomEnabled(true);
+        // Override up navigation for multi-pane, since we handle it in the fragment breadcrumbs
+        if (onIsMultiPane()) {
+            getActionBar().setDisplayHomeAsUpEnabled(false);
+            getActionBar().setHomeButtonEnabled(false);
         }
+
+        mActionBar = getActionBar();
+        mActionBar.setDisplayShowCustomEnabled(true);
     }
 
     @Override
@@ -410,13 +415,6 @@ public class Settings extends PreferenceActivity
     }
 
     @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        mSearchBar.clearFocus();
-        mSearchItem.collapseActionView();
-    }
-
-    @Override
     public void onDestroy() {
         super.onDestroy();
         if (mListeningToAccountUpdates) {
@@ -476,18 +474,18 @@ public class Settings extends PreferenceActivity
         KeyboardLayoutPickerFragment.class.getName(),
         BlacklistSettings.class.getName(),
         ApnSettings.class.getName(),
-	QuietHours.class.getName(),
+	    QuietHours.class.getName(),
         QuickSettingsTiles.class.getName(),
-	BatteryIconStyle.class.getName(),
+	    BatteryIconStyle.class.getName(),
         DisplayRotation.class.getName(),
         HomeSettings.class.getName(),
         ButtonSettings.class.getName(),
         ProfilesSettings.class.getName(),
         PolicyNativeFragment.class.getName(),
         com.android.settings.cyanogenmod.PrivacySettings.class.getName(),
-	ThemeSettings.class.getName(),
+	    ThemeSettings.class.getName(),
         ShakeEvents.class.getName(),
-	com.android.settings.wifi.WifiApSettings.class.getName(),
+	    com.android.settings.wifi.WifiApSettings.class.getName(),
         com.android.settings.carbon.superuser.PolicyNativeFragment.class.getName()	
     };
 
@@ -1018,9 +1016,9 @@ public class Settings extends PreferenceActivity
         private final WifiEnabler mWifiEnabler;
         private final BluetoothEnabler mBluetoothEnabler;
         private final ProfileEnabler mProfileEnabler;
-        private final TRDSEnabler mTRDSEnabler;
         private final LocationEnabler mLocationEnabler;
         private final VoiceWakeupEnabler mVoiceWakeupEnabler;
+        public static ThemeEnabler mThemeEnabler;
         private AuthenticatorHelper mAuthHelper;
         private DevicePolicyManager mDevicePolicyManager;
 
@@ -1036,7 +1034,8 @@ public class Settings extends PreferenceActivity
         private LayoutInflater mInflater;
 
         static int getHeaderType(Header header) {
-            if (header.fragment == null && header.intent == null && header.id != R.id.trds_settings) {
+            if (header.fragment == null && header.intent == null
+                    && header.id != R.id.theme_settings) {
                 return HEADER_TYPE_CATEGORY;
             } else if (header.id == R.id.wifi_settings
                     || header.id == R.id.bluetooth_settings
@@ -1044,10 +1043,10 @@ public class Settings extends PreferenceActivity
                 return HEADER_TYPE_SWITCH;
             } else if (header.id == R.id.wifi_settings
 		    || header.id == R.id.bluetooth_settings
-		    || header.id == R.id.trds_settings
                     || header.id == R.id.profiles_settings
                     || header.id == R.id.voice_wakeup_settings
-                    || header.id == R.id.location_settings) {
+                    || header.id == R.id.location_settings
+                    || header.id == R.id.theme_settings) {
                 return HEADER_TYPE_SWITCH;
             } else if (header.id == R.id.security_settings) {
                 return HEADER_TYPE_BUTTON;
@@ -1096,8 +1095,8 @@ public class Settings extends PreferenceActivity
             mProfileEnabler = new ProfileEnabler(context, new Switch(context));
             mLocationEnabler = new LocationEnabler(context, new Switch(context));
             mVoiceWakeupEnabler = new VoiceWakeupEnabler(context, new Switch(context));
+            mThemeEnabler = new ThemeEnabler(context, new Switch(context));
             mDevicePolicyManager = dpm;
-            mTRDSEnabler = new TRDSEnabler(context, new Switch(context));
         }
 
         @Override
@@ -1170,13 +1169,12 @@ public class Settings extends PreferenceActivity
                         mBluetoothEnabler.setSwitch(holder.switch_);
                     } else if (header.id == R.id.profiles_settings) {
                         mProfileEnabler.setSwitch(holder.switch_);
-                    } else if (header.id == R.id.trds_settings) {
-                        mTRDSSwitch = (Switch) view.findViewById(R.id.switchWidget);
-                        mTRDSEnabler.setSwitch(holder.switch_);
                     } else if (header.id == R.id.location_settings) {
                         mLocationEnabler.setSwitch(holder.switch_);
                     } else if (header.id == R.id.voice_wakeup_settings) {
                         mVoiceWakeupEnabler.setSwitch(holder.switch_);
+                    } else if (header.id == R.id.theme_settings) {
+                        mThemeEnabler.setSwitch(holder.switch_);
                     }
                     updateCommonHeaderView(header, holder);
                     break;
@@ -1224,10 +1222,8 @@ public class Settings extends PreferenceActivity
                     String accType = header.extras.getString(
                             ManageAccountsSettings.KEY_ACCOUNT_TYPE);
                     Drawable icon = mAuthHelper.getDrawableForType(getContext(), accType);
-                    updateIconLayout(holder, true);
-                    holder.icon.setImageDrawable(icon);
+                    setHeaderIcon(holder, icon);
                 } else {
-                    updateIconLayout(holder, false);
                     holder.icon.setImageResource(header.iconRes);
                 }
                 holder.title.setText(header.getTitle(getContext().getResources()));
@@ -1240,34 +1236,31 @@ public class Settings extends PreferenceActivity
                 }
             }
 
-        private void updateIconLayout(HeaderViewHolder holder, boolean forceDefaultSize) {
+        private void setHeaderIcon(HeaderViewHolder holder, Drawable icon) {
             ViewGroup.LayoutParams lp = holder.icon.getLayoutParams();
-            if (forceDefaultSize) {
-                lp.width = getContext().getResources().getDimensionPixelSize(
-                        R.dimen.header_icon_width);
-            } else {
-                lp.width = ViewGroup.LayoutParams.WRAP_CONTENT;
-            }
+            lp.width = getContext().getResources().getDimensionPixelSize(
+                    R.dimen.header_icon_width);
             lp.height = lp.width;
             holder.icon.setLayoutParams(lp);
+            holder.icon.setImageDrawable(icon);
         }
 
         public void resume() {
             mWifiEnabler.resume();
             mBluetoothEnabler.resume();
             mProfileEnabler.resume();
-            mTRDSEnabler.resume();
             mLocationEnabler.resume();
             mVoiceWakeupEnabler.resume();
+            mThemeEnabler.resume();
         }
 
         public void pause() {
             mWifiEnabler.pause();
             mBluetoothEnabler.pause();
             mProfileEnabler.pause();
-            mTRDSEnabler.pause();
             mLocationEnabler.pause();
             mVoiceWakeupEnabler.pause();
+            mThemeEnabler.resume();
         }
     }
 
@@ -1278,6 +1271,19 @@ public class Settings extends PreferenceActivity
             revert = true;
         }
 
+        // a temp hack while we prepare to switch
+        // to the new theme chooser.
+        if (header.id == R.id.theme_settings) {
+            try {
+                Intent intent = new Intent();
+                intent.setClassName("com.tmobile.themechooser", "com.tmobile.themechooser.ThemeChooser");
+                startActivity(intent);
+                return;
+            } catch(ActivityNotFoundException e) {
+                 // Do nothing, we will launch the submenu
+            }
+        }
+
         super.onHeaderClick(header, position);
 
         if (revert && mLastHeader != null) {
@@ -1285,14 +1291,13 @@ public class Settings extends PreferenceActivity
         } else {
             mLastHeader = header;
         }
-        if (header.id == R.id.trds_settings) {
-            mTRDSSwitch.toggle();
-        }
     }
 
     @Override
     public boolean onPreferenceStartFragment(PreferenceFragment caller, Preference pref) {
-        mSearchItem.collapseActionView();
+        if (mSearchItem != null) {
+            mSearchItem.collapseActionView();
+        }
         // Override the fragment title for Wallpaper settings
         int titleRes = pref.getTitleRes();
         if (pref.getFragment().equals(OwnerInfoSettings.class.getName())
@@ -1330,6 +1335,23 @@ public class Settings extends PreferenceActivity
         mAuthenticatorHelper.updateAuthDescriptions(this);
         mAuthenticatorHelper.onAccountsUpdated(this, accounts);
         invalidateHeaders();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+        if (mSearchBar != null) {
+            mSearchBar.clearFocus();
+        }
+        if (mSearchItem != null) {
+            mSearchItem.collapseActionView();
+        }
+
+        if (newConfig.uiThemeMode != mCurrentState && HeaderAdapter.mThemeEnabler != null) {
+            mCurrentState = newConfig.uiThemeMode;
+            HeaderAdapter.mThemeEnabler.setSwitchState();
+        }
     }
 
     public static void requestHomeNotice() {

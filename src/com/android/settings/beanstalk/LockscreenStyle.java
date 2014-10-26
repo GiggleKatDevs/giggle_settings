@@ -257,10 +257,7 @@ public class LockscreenStyle extends SettingsPreferenceFragment
             int indexOf = mLockIcon.findIndexOfValue(newValue.toString());
             if (indexOf == 0) {
                 requestLockImage();
-            } else  if (indexOf == 1) {
-                deleteLockIcon();
-                updateLockSummary();                
-            } else  if (indexOf == 2) {
+            } else if (indexOf == 2) {
                 deleteLockIcon();
                 resizeBsLock();
                 updateLockSummary();
@@ -303,6 +300,9 @@ public class LockscreenStyle extends SettingsPreferenceFragment
             } else if (indexOf == 12) {
                 deleteLockIcon();
                 resizeBsLockten();
+                updateLockSummary();
+            } else if (indexOf == 1) {
+                deleteLockIcon();
                 updateLockSummary();
             }
             return true;
