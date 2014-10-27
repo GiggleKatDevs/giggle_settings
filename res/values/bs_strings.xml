@@ -1986,6 +1986,7 @@
     <string name="menu_hidden_apps_reset_lock">Reset pattern lock</string>
     <string name="protected_apps">Protected apps</string>
     <string name="saving_protected_components">Saving component state</string>
+   <string name="launch_app">Launch app</string> 
 
     <!-- QuickSettings haptic feedback -->
     <string name="haptic_qs_tiles_title">Vibrate on touch</string>
@@ -2306,7 +2307,7 @@
     <string name="xposed_mod_summary">Browse and install modules to be used with Xposed Framework</string>
     <string name="su_category">SuperSu Download</string>    
     <string name="supersu_title">ChainFires SuperSu</string>
-    <string name="supersu_summary">v2.14 Stable-Download and Flash in Recovery</string>    
+    <string name="supersu_summary">v2.16 Stable-Download and Flash in Recovery</string>    
   
     <!--Eqalizer-->
     <string name="equalizer_settings_title">Equalizer</string>
