@@ -1102,7 +1102,8 @@
     <string name="title_tile_bluetooth">Bluetooth</string>
     <string name="title_tile_brightness">Brightness</string>
     <string name="title_tile_camera">Camera</string>
-    <string name="title_tile_cpufreq">CPUFreq</string>    
+    <string name="title_tile_cpufreq">CPUFreq</string>
+    <string name="title_tile_profile">Profile</string>      
     <string name="title_tile_compass">Compass</string>
     <string name="title_tile_contact">Contact</string>
     <string name="title_tile_custom">Custom</string>
@@ -2332,6 +2333,10 @@
     <string name="theme_auto_mode_off">Manual</string>
     <string name="theme_auto_mode_lightsensor">On light condition change</string>
     <string name="theme_auto_mode_twilight">On daytime</string>
-    <string name="theme_auto_switch_mode_error">Automatic light condition change mode is enabled. Manual switching is not possible.</string>                                
+    <string name="theme_auto_switch_mode_error">Automatic light condition change mode is enabled. Manual switching is not possible.</string> 
+    
+    <!-- Notification ticker preference -->
+    <string name="ticker_disabled_title">Disable notification ticker</string>
+    <string name="ticker_disabled_summary">Don\'t scroll text from incoming notifications in the status bar</string>                                   
            
 </resources>

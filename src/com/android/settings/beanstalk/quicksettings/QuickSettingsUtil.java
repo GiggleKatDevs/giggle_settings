@@ -63,6 +63,7 @@ import static com.android.internal.util.beanstalk.QSConstants.TILE_INTERNALMEMOR
 import static com.android.internal.util.beanstalk.QSConstants.TILE_FCHARGE;
 import static com.android.internal.util.beanstalk.QSConstants.TILE_ONTHEGO;
 import static com.android.internal.util.beanstalk.QSConstants.TILE_CPUFREQ;
+import static com.android.internal.util.beanstalk.QSConstants.TILE_PROFILE;
 import static com.android.internal.util.beanstalk.QSConstants.TILE_REMOTEDISPLAY;
 
 import android.content.ContentResolver;
@@ -198,8 +199,11 @@ public class QuickSettingsUtil {
                 TILE_SHAKE, R.string.title_tile_shake,
                 "com.android.systemui:drawable/ic_qs_shake_events"));
         registerTile(new QuickSettingsUtil.TileInfo(
+                TILE_PROFILE, R.string.title_tile_profile,
+                "com.android.systemui:drawable/ic_qs_profiles"));
+        registerTile(new QuickSettingsUtil.TileInfo(
                 TILE_CPUFREQ, R.string.title_tile_cpufreq,
-                "com.android.systemui:drawable/ic_qs_cpufreq"));				
+                "com.android.systemui:drawable/ic_qs_cpufreq"));        				
 	    registerTile(new QuickSettingsUtil.TileInfo(
 		        TILE_NETWORKADB, R.string.title_tile_network_adb,
 		        "com.android.systemui:drawable/ic_qs_network_adb_off"));
