@@ -301,6 +301,14 @@ public class LockscreenStyle extends SettingsPreferenceFragment
                 deleteLockIcon();
                 resizeBsLockten();
                 updateLockSummary();
+	    } else if (indexOf == 13) {
+                deleteLockIcon();
+                resizeBsLockeleven();
+                updateLockSummary();
+	    } else if (indexOf == 14) {
+                deleteLockIcon();
+                resizeBsLocktwelve();
+                updateLockSummary();	
             } else if (indexOf == 1) {
                 deleteLockIcon();
                 updateLockSummary();
@@ -400,6 +408,12 @@ public class LockscreenStyle extends SettingsPreferenceFragment
         } else if (value.contains("ten")) {
             resId = R.string.lockscreen_lock_icon_bs_ten;
             mLockIcon.setValueIndex(12);
+		} else if (value.contains("eleven")) {
+            resId = R.string.lockscreen_lock_icon_bs_eleven;
+            mLockIcon.setValueIndex(13);
+		} else if (value.contains("twelve")) {
+            resId = R.string.lockscreen_lock_icon_bs_twelve;
+            mLockIcon.setValueIndex(14);
         } else {
             resId = R.string.lockscreen_lock_icon_custom;
             mLockIcon.setValueIndex(0);
@@ -450,7 +464,71 @@ public class LockscreenStyle extends SettingsPreferenceFragment
         mColorizeCustom.setEnabled(false);
         updateLockSummary();
     }
+	
+	private void resizeBsLocktwelve() {
+        Bitmap bsLocktwelve = BitmapFactory.decodeResource(getResources(), R.drawable.bs_lock_twelve);
+        if (bsLocktwelve != null) {
+            String path = null;
+            int px = requestImageSize();
+            bsLocktwelve = Bitmap.createScaledBitmap(bsLocktwelve, px, px, true);
+            try {
+                mLockImage.createNewFile();
+                mLockImage.setWritable(true, false);
+                File image = new File(getActivity().getFilesDir() + File.separator
+                            + "twelve" + System.currentTimeMillis() + ".png");
+                path = image.getAbsolutePath();
+                mLockImage.renameTo(image);
+                FileOutputStream outPut = new FileOutputStream(image);
+                bsLocktwelve.compress(Bitmap.CompressFormat.PNG, 100, outPut);
+                image.setReadable(true, false);
+                outPut.flush();
+                outPut.close();
+            } catch (Exception e) {
+                // Uh-oh Nothing we can do here.
+                Log.e(TAG, e.getMessage(), e);
+                return;
+            }
 
+            deleteLockIcon();  // Delete current icon if it exists before saving new.
+            Settings.Secure.putString(getContentResolver(),
+                    Settings.Secure.LOCKSCREEN_LOCK_ICON, path);
+            mColorizeCustom.setEnabled(path != null);
+            updateLockSummary();
+        }
+    }
+	
+	private void resizeBsLockeleven() {
+        Bitmap bsLockeleven = BitmapFactory.decodeResource(getResources(), R.drawable.bs_lock_eleven);
+        if (bsLockeleven != null) {
+            String path = null;
+            int px = requestImageSize();
+            bsLockeleven = Bitmap.createScaledBitmap(bsLockeleven, px, px, true);
+            try {
+                mLockImage.createNewFile();
+                mLockImage.setWritable(true, false);
+                File image = new File(getActivity().getFilesDir() + File.separator
+                            + "eleven" + System.currentTimeMillis() + ".png");
+                path = image.getAbsolutePath();
+                mLockImage.renameTo(image);
+                FileOutputStream outPut = new FileOutputStream(image);
+                bsLockeleven.compress(Bitmap.CompressFormat.PNG, 100, outPut);
+                image.setReadable(true, false);
+                outPut.flush();
+                outPut.close();
+            } catch (Exception e) {
+                // Uh-oh Nothing we can do here.
+                Log.e(TAG, e.getMessage(), e);
+                return;
+            }
+
+            deleteLockIcon();  // Delete current icon if it exists before saving new.
+            Settings.Secure.putString(getContentResolver(),
+                    Settings.Secure.LOCKSCREEN_LOCK_ICON, path);
+            mColorizeCustom.setEnabled(path != null);
+            updateLockSummary();
+        }
+    }
+	
     private void resizeBsLockten() {
         Bitmap bsLockten = BitmapFactory.decodeResource(getResources(), R.drawable.bs_lock_ten);
         if (bsLockten != null) {
