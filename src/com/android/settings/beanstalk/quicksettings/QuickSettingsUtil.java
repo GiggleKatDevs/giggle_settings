@@ -64,6 +64,7 @@ import static com.android.internal.util.beanstalk.QSConstants.TILE_FCHARGE;
 import static com.android.internal.util.beanstalk.QSConstants.TILE_ONTHEGO;
 import static com.android.internal.util.beanstalk.QSConstants.TILE_CPUFREQ;
 import static com.android.internal.util.beanstalk.QSConstants.TILE_PROFILE;
+import static com.android.internal.util.beanstalk.QSConstants.TILE_THEME;
 import static com.android.internal.util.beanstalk.QSConstants.TILE_REMOTEDISPLAY;
 
 import android.content.ContentResolver;
@@ -207,6 +208,9 @@ public class QuickSettingsUtil {
 	    registerTile(new QuickSettingsUtil.TileInfo(
 		        TILE_NETWORKADB, R.string.title_tile_network_adb,
 		        "com.android.systemui:drawable/ic_qs_network_adb_off"));
+        registerTile(new QuickSettingsUtil.TileInfo(
+                TILE_THEME, R.string.title_tile_theme,
+                "com.android.systemui:drawable/ic_qs_theme_manual"));		        
     }
 
     private static void registerTile(QuickSettingsUtil.TileInfo info) {

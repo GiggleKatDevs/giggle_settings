@@ -257,59 +257,59 @@ public class LockscreenStyle extends SettingsPreferenceFragment
             int indexOf = mLockIcon.findIndexOfValue(newValue.toString());
             if (indexOf == 0) {
                 requestLockImage();
-            } else if (indexOf == 2) {
+            } else if (indexOf == 1) {
                 deleteLockIcon();
                 resizeBsLock();
                 updateLockSummary();
-            } else if (indexOf == 3) {
+            } else if (indexOf == 2) {
                 deleteLockIcon();
                 resizeBsLockone();
                 updateLockSummary();
-            } else if (indexOf == 4) {
+            } else if (indexOf == 3) {
                 deleteLockIcon();
                 resizeBsLocktwo();
                 updateLockSummary();
-            } else if (indexOf == 5) {
+            } else if (indexOf == 4) {
                 deleteLockIcon();
                 resizeBsLockthree();
                 updateLockSummary();
-            } else if (indexOf == 6) {
+            } else if (indexOf == 5) {
                 deleteLockIcon();
                 resizeBsLockfour();
                 updateLockSummary();
-            } else if (indexOf == 7) {
+            } else if (indexOf == 6) {
                 deleteLockIcon();
                 resizeBsLockfive();
                 updateLockSummary();
-            } else if (indexOf == 8) {
+            } else if (indexOf == 7) {
                 deleteLockIcon();
                 resizeBsLocksix();
                 updateLockSummary();
-            } else if (indexOf == 9) {
+            } else if (indexOf == 8) {
                 deleteLockIcon();
                 resizeBsLockseven();
                 updateLockSummary();
-            } else if (indexOf == 10) {
+            } else if (indexOf == 9) {
                 deleteLockIcon();
                 resizeBsLockeight();
                 updateLockSummary();
-            } else if (indexOf == 11) {
+            } else if (indexOf == 10) {
                 deleteLockIcon();
                 resizeBsLocknine();
                 updateLockSummary();
-            } else if (indexOf == 12) {
+            } else if (indexOf == 11) {
                 deleteLockIcon();
                 resizeBsLockten();
                 updateLockSummary();
-	    } else if (indexOf == 13) {
+	    } else if (indexOf == 12) {
                 deleteLockIcon();
                 resizeBsLockeleven();
                 updateLockSummary();
-	    } else if (indexOf == 14) {
+	    } else if (indexOf == 13) {
                 deleteLockIcon();
                 resizeBsLocktwelve();
                 updateLockSummary();	
-            } else if (indexOf == 1) {
+            } else if (indexOf == 14) {
                 deleteLockIcon();
                 updateLockSummary();
             }
@@ -374,46 +374,46 @@ public class LockscreenStyle extends SettingsPreferenceFragment
                 Settings.Secure.LOCKSCREEN_LOCK_ICON);
         if (value == null) {
             resId = R.string.lockscreen_lock_icon_default;
-            mLockIcon.setValueIndex(1);
+            mLockIcon.setValueIndex(14);
         } else if (value.contains("bs_lock")) {
             resId = R.string.lockscreen_lock_icon_bs;
-            mLockIcon.setValueIndex(2);
+            mLockIcon.setValueIndex(1);
         } else if (value.contains("one")) {
             resId = R.string.lockscreen_lock_icon_bs_one;
-            mLockIcon.setValueIndex(3);
+            mLockIcon.setValueIndex(2);
         } else if (value.contains("two")) {
             resId = R.string.lockscreen_lock_icon_bs_two;
-            mLockIcon.setValueIndex(4);
+            mLockIcon.setValueIndex(3);
         } else if (value.contains("three")) {
             resId = R.string.lockscreen_lock_icon_bs_three;
-            mLockIcon.setValueIndex(5);
+            mLockIcon.setValueIndex(4);
         } else if (value.contains("four")) {
             resId = R.string.lockscreen_lock_icon_bs_four;
-            mLockIcon.setValueIndex(6);
+            mLockIcon.setValueIndex(5);
         } else if (value.contains("five")) {
             resId = R.string.lockscreen_lock_icon_bs_five;
-            mLockIcon.setValueIndex(7);
+            mLockIcon.setValueIndex(6);
         } else if (value.contains("six")) {
             resId = R.string.lockscreen_lock_icon_bs_six;
-            mLockIcon.setValueIndex(8);
+            mLockIcon.setValueIndex(7);
         } else if (value.contains("seven")) {
             resId = R.string.lockscreen_lock_icon_bs_seven;
-            mLockIcon.setValueIndex(9);
+            mLockIcon.setValueIndex(8);
         } else if (value.contains("eight")) {
             resId = R.string.lockscreen_lock_icon_bs_eight;
-            mLockIcon.setValueIndex(10);
+            mLockIcon.setValueIndex(9);
         } else if (value.contains("nine")) {
             resId = R.string.lockscreen_lock_icon_bs_nine;
-            mLockIcon.setValueIndex(11);
+            mLockIcon.setValueIndex(10);
         } else if (value.contains("ten")) {
             resId = R.string.lockscreen_lock_icon_bs_ten;
-            mLockIcon.setValueIndex(12);
+            mLockIcon.setValueIndex(11);
 		} else if (value.contains("eleven")) {
             resId = R.string.lockscreen_lock_icon_bs_eleven;
-            mLockIcon.setValueIndex(13);
+            mLockIcon.setValueIndex(12);
 		} else if (value.contains("twelve")) {
             resId = R.string.lockscreen_lock_icon_bs_twelve;
-            mLockIcon.setValueIndex(14);
+            mLockIcon.setValueIndex(13);
         } else {
             resId = R.string.lockscreen_lock_icon_custom;
             mLockIcon.setValueIndex(0);

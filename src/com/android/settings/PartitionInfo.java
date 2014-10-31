@@ -16,31 +16,15 @@
 
 package com.android.settings;
 
-import android.content.ComponentName;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.StatFs;
-import android.os.SystemClock;
-import android.os.SystemProperties;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
-import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
-import android.provider.Settings;
 import android.text.format.Formatter;
 import android.util.Log;
-import android.view.MotionEvent;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class PartitionInfo extends PreferenceActivity {
     private static final String TAG = "PartitionInfo";
