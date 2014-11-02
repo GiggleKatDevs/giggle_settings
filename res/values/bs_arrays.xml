@@ -156,8 +156,6 @@
         <item>@string/lockscreen_lock_icon_bs_eight</item>
         <item>@string/lockscreen_lock_icon_bs_nine</item>
         <item>@string/lockscreen_lock_icon_bs_ten</item>
-	<item>@string/lockscreen_lock_icon_bs_eleven</item>
-	<item>@string/lockscreen_lock_icon_bs_twelve</item>
         <item>@string/lockscreen_lock_icon_default</item>
     </string-array>
 
