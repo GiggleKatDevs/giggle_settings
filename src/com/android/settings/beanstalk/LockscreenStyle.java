@@ -407,12 +407,6 @@ public class LockscreenStyle extends SettingsPreferenceFragment
             mLockIcon.setValueIndex(10);
         } else if (value.contains("ten")) {
             resId = R.string.lockscreen_lock_icon_bs_ten;
-            mLockIcon.setValueIndex(11);
-		} else if (value.contains("eleven")) {
-            resId = R.string.lockscreen_lock_icon_bs_eleven;
-            mLockIcon.setValueIndex(12);
-		} else if (value.contains("twelve")) {
-            resId = R.string.lockscreen_lock_icon_bs_twelve;
             mLockIcon.setValueIndex(13);
         } else {
             resId = R.string.lockscreen_lock_icon_custom;
