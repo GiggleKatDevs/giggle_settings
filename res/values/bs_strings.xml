@@ -2349,6 +2349,10 @@
     <string name="dynamic_system_bars_gradient_title">System bar gradient</string>
     <string name="dynamic_system_bars_gradient_summary">Overlay a gradient on the system bars</string>
     <string name="dynamic_status_bar_filter_title">Darker status bar</string>
-    <string name="dynamic_status_bar_filter_summary">Overlay a darkening filter on the status bar</string>                                      
+    <string name="dynamic_status_bar_filter_summary">Overlay a darkening filter on the status bar</string>  
+
+    <!--Double Tap Nav to Sleep -->
+    <string name="double_tap_sleep_nav_bar_title">Navigation bar</string>
+    <string name="double_tap_sleep_nav_bar_summary">Double tap anywhere on the navigation bar</string>                                        
            
 </resources>
